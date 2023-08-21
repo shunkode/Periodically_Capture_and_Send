@@ -1,5 +1,7 @@
 # periodically_capture_and_send
-This program periodically takes pictures and transfers data.
+This program periodically takes pictures and transfers data to Dropbox.
+You can execute this by command of "python main.py"
+Also, you can change config like width, height, framerate, interval of capture, etc. 
 
 It works well, but is still in the prototype stage and will be improved (e.g., use classes to make it easier to understand, add comments, etc.).
 
