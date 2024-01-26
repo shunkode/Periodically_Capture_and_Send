@@ -42,10 +42,10 @@ elif not if_Windows_or_Linux():
     def search_and_use_usb_device(search_device_name):
         devices = [evdev.InputDevice(path) for path in evdev.list_devices()]
         for dev in devices:
-            print(dev.path, dev.name)#, dev.phys)
+            #print(dev.path, dev.name)#, dev.phys)
             if if_contains_string(search_device_name, dev.name):
                 device_path = dev.path
-        print("device_path: ", device_path)
+        #print("device_path: ", device_path)
         device = evdev.InputDevice(device_path)
         return device
 
@@ -88,6 +88,7 @@ wait_keyboard(wait_time)
 
 
 def keyboard_wait(scheduled_time, keyboard=None):
+    #waiting_keyboard = True
     interval = scheduled_time - time.time()
     if interval < 10:
         rest_time = interval * 7 / 10
@@ -95,9 +96,9 @@ def keyboard_wait(scheduled_time, keyboard=None):
         print(f"WE WILL WAIT {keyboard_wait_time} seconds after {rest_time} SECONDS. \nIF YOU WANT TO FINISH SENDING, YOU SHOULD PUSH ESCAPE in that time. \nI WON'T REPEAT THIS WORK.")
         time.sleep(rest_time)
         if if_Windows_or_Linux():
-            wait_keyboard_with_Windows(keyboard_wait_time)
+            waiting_keyboard = wait_keyboard_with_Windows(keyboard_wait_time)
         if not if_Windows_or_Linux():
-            wait_keyboard_with_Linux(keyboard, keyboard_wait_time)
+            waiting_keyboard = wait_keyboard_with_Linux(keyboard, keyboard_wait_time)
 
     
     elif 10 <= interval < 30:
@@ -194,6 +195,7 @@ def keyboard_wait(scheduled_time, keyboard=None):
             #else:
             #    continue
     
+    
     if waiting_keyboard:
         return True
     if not waiting_keyboard:
@@ -207,20 +209,20 @@ def determine_scheduled_time(scheduled_time, interval, DAY, HOUR, MINUTE, SECOND
         print("I guess you input SECOND")
 
     if DAY:
-        interval = interval * 86400
+        scheduled_time =scheduled_time + interval * 86400
         print("I guess you input DAY")
     elif HOUR:
-        interval = interval * 3600
+        scheduled_time =scheduled_time + interval * 3600
         print("I guess you input HOUR")
     elif MINUTE:
-        interval = interval * 60
+        scheduled_time =scheduled_time + interval * 60
         print("I guess you input MINUTE")
     elif SECOND:
+        scheduled_time =scheduled_time + interval
         print("I guess you input SECOND")
     else:
         print("NOT MATCH FORMAT!")
         sys.exit()
-    scheduled_time =scheduled_time + interval
     return scheduled_time
 
 """
