@@ -28,8 +28,8 @@ Copyright (c) 2020 Dropbox Inc., http://www.dropbox.com/
 import dropbox
 
 def update_access_token():
-    rdbx = dropbox.Dropbox(oauth2_refresh_token = "FytgLVT_jVEAAAAAAAAAAZkJsAyjEz7ATKn0FYwjLRVlS3N6yTpMzPIQOcLVppD0",
-    app_key = "w6ht905tz6ijg0n", app_secret = "bc3pdkixfh2xqxi")
+    rdbx = dropbox.Dropbox(oauth2_refresh_token = "******",
+    app_key = "******", app_secret = "******")
     """
     {'_oauth2_access_token': None, '_oauth2_refresh_token': '******', '_oauth2_access_token_expiration': None, '_app_key': '*******', '_app_secret': '*******', '_scope': None, '_max_retries_on_error': 4, '_max_retries_on_rate_limit': None, '_session': <requests.sessions.Session object at 0x7fffd4cbe278>, '_headers': None, '_raw_user_agent': None, '_user_agent': 'OfficialDropboxPythonSDKv2/11.32.0', '_logger': <Logger dropbox (WARNING)>, '_host_map': {'api': 'api.dropboxapi.com', 'content': 'content.dropboxapi.com', 'notify': 'notify.dropboxapi.com'}, '_timeout': 100}
     """
