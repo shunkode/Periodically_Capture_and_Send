@@ -1,12 +1,15 @@
-# periodically_capture_and_send
-This program periodically takes pictures and transfers data to Dropbox.
-You can execute this by command of "python main.py"
-Also, you can change config like width, height, framerate, interval of capture, etc. 
+# What's this?
+This program periodically takes pictures and transfers data to Dropbox.　　
+You can execute this by command of "python main.py"　　
+Also, you can change config like width, height, framerate, interval of capture, etc. 　　
 
-It works well, but is still in the prototype stage and will be improved (e.g., use classes to make it easier to understand, add comments, etc.).
+It works well, but is not yet organized.　　
+If you have any questions, feel free to ask.
 
-# Licence
-This program may be freely copied, modified, used, etc., but with respect to update_access_token.py, please comply with the license of dropbox.
-The author assumes no obligation or responsibility for any problems that may result from the use of this program.
-(In particular, with regard to the Send.py (the file that performs the data transfer), please note that it includes a process to erase sent files and empty folders!)
+# Features of v7
+This program is dedicated to video recording using a raspberry pi, USB camera and opencv.　　
+It introduces multiprocessing and Queue, and uses separate cores for acquiring frames and saving frames in video format (plus data transfer).　　
+This solves the problem of not getting the specified frame rate when shooting video using the raspberry pi.
+
+
 
